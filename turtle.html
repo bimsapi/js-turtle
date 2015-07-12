@@ -1,17 +1,69 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html">
 <html>
    <head>
-      <title>Javascript Turtle</title>
-      <script type="text/javascript" src="jquery-1.6.4.min.js"></script>
-      <link type="text/css" rel="stylesheet" href="turtle.css" />
+     <title>Javascript Turtle</title>
+     <link type="text/css" rel="stylesheet" href="turtle.css" />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+     <style type="text/css" media="screen">
+     #editor { 
+         position: absolute;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+       }
+     </style>
+   
    </head>
    <body>
-      <div id="wrap">
-         <h1>Javascript Turtle Graphics</h1>
+      <nav class="navbar-inverse">
+	 <div class="container">
+	    <div class="navbar-header">
+	       <a class="navbar-brand" href="#">Java Script Turtle</a>
+	    </div>
+	 </div>
+      </nav>
+      <div class="container">
          <div id="leftcolumn">
+	    <div class="col-md-5">
+              <h4>Canvas</h4>
+              <canvas id="turtlecanvas" width="300" height="300"></canvas>
+              <canvas id="imagecanvas" width="300" height="300" style="display:none"></canvas>
+              <h4>Command</h4>
+                <input type="text" id="command"/>
+	      <br/>
+	      <button id="resetButton" class="btn btn-default">Reset</button>
+            </div>
+         </div> <!-- leftcolumn -->
+         <div id="midcolumn" class="col-md-5" style="position: relative">
+            <h4>Definitions</h4>
+            <div style="position: relative; height: 300px;">
+              <div id="editor">
+// Define helper functions here.
+// For example:
+
+function square(side) {
+   repeat(4, function () {
+      forward(side);
+      right(90);
+   });
+}
+
+function demo() {
+   hideTurtle();
+   colour(0,0,255,1);
+   for(s = 100; s &gt; 0; s -= 10) {
+      square(s);
+      right(36);
+   }
+}
+             </div>
+           </div>
+         </div> <!-- midcolumn -->
+         <div id="rightcolumn" class="col-md-2">
             <h4>Language Reference</h4>
-            <code>
-              forward(distance) <br/>
+            <code>forward(distance) <br/>
               right(angle) <br/>
               left(angle) <br/>
               goto(x,y) <br/>
@@ -33,40 +85,15 @@
               animate(action,ms) <br/>
             </code>
          </div> <!-- leftcolumn -->
-         <div id="midcolumn">
-            <h4>Canvas</h4>
-            <canvas id="turtlecanvas" width="300" height="300"></canvas>
-            <canvas id="imagecanvas" width="300" height="300" style="display:none"></canvas>
-            <h4>Command</h4>
-               <input type="text" id="command" />
-	    <br/>
-	    <button id="resetButton">Reset</button>
-
-         </div> <!-- midcolumn -->
-         <div id="rightcolumn">
-            <h4>Definitions</h4>
-            <textarea id="definitions" rows="20">
-// Define helper functions here.
-// For example:
-
-function square(side) {
-   repeat(4, function () {
-      forward(side);
-      right(90);
-   });
-}
-
-function demo() {
-   hideTurtle();
-   colour(0,0,255,1);
-   for(s = 100; s > 0; s -= 10) {
-      square(s);
-      right(36);
-   }
-}
-            </textarea>
-         </div> <!-- rightcolumn -->
       </div> <!-- wrap-->
       <script type="text/javascript" src="turtle.js"></script>
+      <script src="//cdn.jsdelivr.net/ace/1.1.9/min/ace.js" type="text/javascript" charset="utf-8"></script>
+      <script>
+          $().ready(function() {
+            window.editor = ace.edit("editor");
+            window.editor.setTheme("ace/theme/solarized_light");
+            window.editor.getSession().setMode("ace/mode/javascript");
+          });
+      </script>
    </body>
 </html>

@@ -301,7 +301,7 @@ function setFont(font) {
 // (when the user presses enter)
 $('#command').change(function () {
    var commandText = $(this).val();
-   var definitionsText = $('#definitions').val();
+   var definitionsText = window.editor.getValue();
    try {
      // execute any code in the definitions box
      eval(definitionsText);
