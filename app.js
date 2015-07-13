@@ -1,7 +1,7 @@
 (function () {
     var loadSample = function(sample) {
             $.ajax({
-            url: "/examples/" + sample,
+            url: "examples/" + sample,
             success: function(data) {
                 window.editor.selectAll();
                 window.editor.insert(data);
