@@ -12,7 +12,7 @@ function spiral(steps,angle) {
    }
 }
 
-function fun(count) {
+ function fun(count) {
    while (count-- > 0) {
       colour(random(0,255), random(0,255), random(0,255), Math.random());
       goto(random(-150,150), random(-150, 150));
@@ -21,7 +21,7 @@ function fun(count) {
    }
 }
 
-function demo(count) {
+function demo(count=5) {
    hideTurtle();
    redrawOnMove(false);
    fun(count);
