@@ -24,15 +24,21 @@
             </div>
          </div>
       </nav>
-      <div class="container">
+      <div class="container-fluid">
          <div class="row">
             <div class="col-md-6" style="position: relative">
               <h4>Code</h4>
               <div style="position: relative; height: 320px">
                 <div id="editor"></div>
               </div>
-	      <button class="btn btn-primary" id="runButton">Run Code</button>
-              <button class="btn" id="clearButton">Clear Canvas</button>
+	      <div class="panel panel-default">
+	       <p>You can also run the code with <kbd>ctl-m</kbd> on a PC and <kbd>&#8984;-m</kbd> on a Mac</p>
+	       <form>
+		  <button class="btn btn-primary" id="runButton">Run Code</button>
+		  <button class="btn" id="clearButton">Clear Canvas</button>
+		  <button class="btn" id="clearCode">Clear Editor!</button>
+	       </form>
+	      </div>
             </div> <!-- editor column -->
             <div class="col-md-4">
               <h4>Canvas</h4>
@@ -43,6 +49,7 @@
 	      <h4>Samples</h4>
               <div class="form-group">
                   <select id="samples" class="form-control">
+		    <option value="starter.js" selected>Starter</option>
                     <option value="bounce.js">Bounce</option>
                     <option value="clock.js">Clock</option>
                     <option value="randstripe.js">Randstripe</option>
@@ -60,19 +67,18 @@
 	         <tr><td>left(angle)</td><td>Rotate the turtle counter-clockwise by "angle" (in degrees).</td></tr>
 	         <tr><td>forward(distance)</td><td>Move the "turtle" forward by "distance" (in pixels).</td></tr>
 	         <tr><td>goto(x,y)</td><td>Position the turtle at the specified x,y coordinates. Note that 0,0 is the center of the canvas.</td></tr>
-	         <tr><td>clear()</td><td>Erase all drawing on the canvas.</td></tr>
+	         <tr><td>clear()</td><td>Erase all drawing on the canvas. The turtle stays in place.</td></tr>
 	         <tr><td>penup()</td><td>Configure the turtle to move without drawing.</td></tr>
 	         <tr><td>pendown()</td><td>Configure the turtle to draw as it moves.</td></tr>
-	         <tr><td>reset()</td><td></td></tr>
-	         <tr><td>angle(angle)</td><td></td></tr>
+	         <tr><td>reset()</td><td>Reset the canvas and turtle to a pristine state.</td></tr>
+	         <tr><td>angle(angle)</td><td>Set the drawing direction; this does not rotate the turtle.</td></tr>
 	         <tr><td>width(width)</td><td>Set the width of the line drawn by the turtle as it moves.</td></tr>
-	         <tr><td>colour(r,g,b,a)</td><td></td></tr>
+	         <tr><td>colour(r,g,b,a)</td><td>Set the color of the line drawn by the pen.</td></tr>
 	         <tr><td>write(string)</td><td></td></tr>
 	         <tr><td>n = random(low,high)</td><td></td></tr>
 	         <tr><td>hideTurtle()</td><td></td></tr>
 	         <tr><td>showTurtle()</td><td></td></tr>
 	         <tr><td>redrawOnMove(bool)</td><td></td></tr>
-	         <tr><td></td><td></td></tr>
 	         <tr><td>draw()</td><td></td></tr>
 	         <tr><td>repeat(n, action)</td><td></td></tr>
 	         <tr><td>wrap(bool)</td><td></td></tr>

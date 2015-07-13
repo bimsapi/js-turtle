@@ -1,7 +1,7 @@
 (function () {
     var loadSample = function(sample) {
             $.ajax({
-            url: "examples/" + sample,
+            url: "./examples/" + sample,
             success: function(data) {
                 window.editor.selectAll();
                 window.editor.insert(data);
@@ -11,20 +11,28 @@
     
     $('#samples').change(function() {
         loadSample($(this).val());
+        window.editor.focus();
     });
     
     $('#runButton').click(function() {
         var code = window.editor.getValue();
         eval(code);
+        window.editor.focus();
     })
     
     $('#clearButton').click(function() {
-        clear(); 
+        clear();
+        window.editor.focus();
+    });
+    
+    $('#clearCode').click(function() {
+        window.editor.setValue('');
+        window.editor.focus();
     });
     
     $(document).ready(function() {
         window.editor = ace.edit("editor");
-        window.editor.setTheme("ace/theme/solarized_light");
+        window.editor.setTheme("ace/theme/monokai");
         window.editor.getSession().setMode("ace/mode/javascript");
         window.editor.commands.addCommand({
             name: 'execScript',
