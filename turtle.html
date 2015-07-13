@@ -6,94 +6,82 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
      <script type="text/javascript" src="jquery-1.6.4.min.js"></script>
      <style type="text/css" media="screen">
-     #editor { 
+     #editor {
          position: absolute;
+	 height: 320px;
          top: 0;
          right: 0;
          bottom: 0;
          left: 0;
        }
      </style>
-   
    </head>
    <body>
       <nav class="navbar-inverse">
-	 <div class="container">
-	    <div class="navbar-header">
-	       <a class="navbar-brand" href="#">Java Script Turtle</a>
-	    </div>
-	 </div>
+         <div class="container">
+            <div class="navbar-header">
+               <a class="navbar-brand" href="#">JavaScript Turtle</a>
+            </div>
+         </div>
       </nav>
       <div class="container">
-         <div id="leftcolumn">
-	    <div class="col-md-5">
+         <div class="row">
+            <div class="col-md-6" style="position: relative">
+              <h4>Definitions</h4>
+              <div style="position: relative; height: 320px">
+                <div id="editor"></div>
+              </div>
+            </div> <!-- editor column -->
+            <div class="col-md-4">
               <h4>Canvas</h4>
               <canvas id="turtlecanvas" width="300" height="300"></canvas>
               <canvas id="imagecanvas" width="300" height="300" style="display:none"></canvas>
-              <h4>Command</h4>
-                <input type="text" id="command"/>
-	      <br/>
-	      <button id="resetButton" class="btn btn-default">Reset</button>
             </div>
-         </div> <!-- leftcolumn -->
-         <div id="midcolumn" class="col-md-5" style="position: relative">
-            <h4>Definitions</h4>
-            <div style="position: relative; height: 300px;">
-              <div id="editor">
-// Define helper functions here.
-// For example:
-
-function square(side) {
-   repeat(4, function () {
-      forward(side);
-      right(90);
-   });
-}
-
-function demo() {
-   hideTurtle();
-   colour(0,0,255,1);
-   for(s = 100; s &gt; 0; s -= 10) {
-      square(s);
-      right(36);
-   }
-}
-             </div>
-           </div>
-         </div> <!-- midcolumn -->
-         <div id="rightcolumn" class="col-md-2">
-            <h4>Language Reference</h4>
-            <code>forward(distance) <br/>
-              right(angle) <br/>
-              left(angle) <br/>
-              goto(x,y) <br/>
-              clear() <br/>
-              penup() <br/>
-              pendown() <br/>
-              reset() <br/>
-              angle(angle) <br/>
-              width(width) <br/>
-              colour(r,g,b,a) <br/>
-              write(string) <br/>
-              n = random(low,high) <br/>
-              hideTurtle() <br/>
-              showTurtle() <br/>
-              redrawOnMove(bool) <br/>
-              draw() <br/>
-              repeat(n, action) <br/>
-              wrap(bool) <br/>
-              animate(action,ms) <br/>
-            </code>
-         </div> <!-- leftcolumn -->
+	    <div class="col-md-2">
+	      <h4>Samples</h4>
+              <div class="form-group">
+                  <select id="samples" class="form-control">
+                    <option value="bounce.js">Bounce</option>
+                    <option value="clock.js">Clock</option>
+                    <option value="randstripe.js">Randstripe</option>
+                    <option value="sierpinski.js">Sierpinski</option>
+                    <option value="spiral.js">Spiral</option>
+                  </select>
+                <button class="btn btn-default" id="demoButton">Run Demo</button>
+                <button class="btn" id="clearButton">Clear</button>
+              </div>
+	    </div>
+         </div>
+	 <div class="row">
+            <h4>Command Reference</h4>
+	      <table class="table">
+	         <tr><td>forward(distance)</td><td>Move the "turtle" forward by "distance" (in pixels).</td></tr>
+	         <tr><td>right(angle)</td><td>Rotate the turtle clockise by "angle" (in degrees).</td></tr>
+	         <tr><td>left(angle)</td><td>Rotate the turtle counter-clockwise by "angle" (in degrees).</td></tr>
+	         <tr><td>forward(distance)</td><td>Move the "turtle" forward by "distance" (in pixels).</td></tr>
+	         <tr><td>goto(x,y)</td><td>Position the turtle at the specified x,y coordinates. Note that 0,0 is the center of the canvas.</td></tr>
+	         <tr><td>clear()</td><td>Erase all drawing on the canvas.</td></tr>
+	         <tr><td>penup()</td><td>Configure the turtle to move without drawing.</td></tr>
+	         <tr><td>pendown()</td><td>Configure the turtle to draw as it moves.</td></tr>
+	         <tr><td>reset()</td><td></td></tr>
+	         <tr><td>angle(angle)</td><td></td></tr>
+	         <tr><td>width(width)</td><td>Set the width of the line drawn by the turtle as it moves.</td></tr>
+	         <tr><td>colour(r,g,b,a)</td><td></td></tr>
+	         <tr><td>write(string)</td><td></td></tr>
+	         <tr><td>n = random(low,high)</td><td></td></tr>
+	         <tr><td>hideTurtle()</td><td></td></tr>
+	         <tr><td>showTurtle()</td><td></td></tr>
+	         <tr><td>redrawOnMove(bool)</td><td></td></tr>
+	         <tr><td></td><td></td></tr>
+	         <tr><td>draw()</td><td></td></tr>
+	         <tr><td>repeat(n, action)</td><td></td></tr>
+	         <tr><td>wrap(bool)</td><td></td></tr>
+	         <tr><td>animate(action,ms)</td><td></td></tr>
+	      </table>
+	 </div>
       </div> <!-- wrap-->
       <script type="text/javascript" src="turtle.js"></script>
       <script src="//cdn.jsdelivr.net/ace/1.1.9/min/ace.js" type="text/javascript" charset="utf-8"></script>
-      <script>
-          $().ready(function() {
-            window.editor = ace.edit("editor");
-            window.editor.setTheme("ace/theme/solarized_light");
-            window.editor.getSession().setMode("ace/mode/javascript");
-          });
-      </script>
+      <script src="app.js" type="text/javascript"></script>
    </body>
 </html>
