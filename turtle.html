@@ -38,8 +38,8 @@
         <div class="panel panel-default">
           <p>You can also run the code with <kbd>ctl-m</kbd> on a PC and <kbd>&#8984;-m</kbd> on a Mac</p>
           <button type="button" class="btn btn-primary" id="runButton">Run Code</button>
-          <button type="button" class="btn" id="clearButton">Clear Canvas</button>
-          <button type="button" class="btn" id="clearCode">Clear Editor!</button>
+          <button type="button" class="btn btn-default" id="clearButton">Clear Canvas</button>
+          <button type="button" class="btn btn-default" id="clearCode">Clear Editor!</button>
           <form class="form-group horizontal">
             <label for="samples">Code Samples</label>
             <select id="samples" class="form-control">
@@ -65,18 +65,18 @@
           choice, simple commands like "forward" or "right" are entered to make the turtle move.</p>
           <p>From simple building blocks, more complicated shapes can be built. Can you build a staircase?
             A square? What about a general function for a polygon of any shape?</p>
-            <div class="form-group">
-            </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <h4>Command Reference</h4>
             <table class="table">
+              <tr><th colspan="2">Movement</th></tr>
               <tr><td>forward(distance)</td><td>Move the "turtle" forward by "distance" (in pixels).</td></tr>
               <tr><td>right(angle)</td><td>Rotate the turtle clockise by "angle" (in degrees).</td></tr>
               <tr><td>left(angle)</td><td>Rotate the turtle counter-clockwise by "angle" (in degrees).</td></tr>
               <tr><td>goto(x,y)</td><td>Position the turtle at the specified x,y coordinates. Note that 0,0 is the center of the canvas.</td></tr>
+              <tr><th colspan="2">Canvas and drawing</th></tr>
               <tr><td>clear()</td><td>Erase all drawing on the canvas. The turtle stays in place.</td></tr>
               <tr><td>penup()</td><td>Configure the turtle to move without drawing.</td></tr>
               <tr><td>pendown()</td><td>Configure the turtle to draw as it moves.</td></tr>
@@ -92,7 +92,9 @@
               <tr><td>draw()</td><td></td></tr>
               <tr><td>repeat(n, action)</td><td>Repeat "action", "n" times.</td></tr>
               <tr><td>wrap(bool)</td><td>Turn edge wrapping on or off.</td></tr>
+              <tr><th colspan="2">Animation</th></tr>
               <tr><td>animate(action,ms)</td><td>Execute the function "action" every "ms" milliseconds.</td></tr>
+              <tr><td>stopAnimation()</td><td>Cause any previous animation to stop.</td></tr>
             </table>
           </div>
         </div>

@@ -26,6 +26,7 @@ function initialise() {
               redraw: true, // does this belong here?
               wrap: true,
               colour: {r: 0, g: 0, b: 0, a: 1},
+              animation: null,
             };
    imageContext.lineWidth = turtle.width;
    imageContext.strokeStyle = "black";
@@ -290,11 +291,13 @@ function repeat(n, action) {
 }
 
 function animate(f,ms) {
-   return setInterval(f, ms);
+   return turtle.animation = setInterval(f, ms);
 }
 
 function stopAnimation() {
-   clearInterval();
+  if (turtle.animation) {
+    clearInterval(turtle.animation);
+ }
 }
 
 function setFont(font) {
