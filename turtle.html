@@ -28,7 +28,7 @@
       <div class="container-fluid">
          <div class="row">
             <div class="col-md-6" style="position: relative">
-              <h4>Code</h4>
+              <h4>Your Code</h4>
 	      <div id="alertBox" class="alert alert-danger alert-dismissable" role="alert" style="display:none;">
 	        <button type="button" data-dismiss="alert" class="close">&times;</button>
 	      </div>
@@ -40,52 +40,61 @@
 	       <button type="button" class="btn btn-primary" id="runButton">Run Code</button>
 	       <button type="button" class="btn" id="clearButton">Clear Canvas</button>
 	       <button type="button" class="btn" id="clearCode">Clear Editor!</button>
+	       <form class="form-group horizontal">
+		  <label for="samples">Code Samples</label>
+		  <select id="samples" class="form-control">
+		    <option value="starter.js" selected>Starter</option>
+		    <option value="bounce.js">Bounce</option>
+		    <option value="clock.js">Clock</option>
+		    <option value="randstripe.js">Randstripe</option>
+		    <option value="sierpinski.js">Sierpinski</option>
+		    <option value="spiral.js">Spiral</option>
+		  </select>
+	       </form>
 	      </div>
             </div> <!-- editor column -->
             <div class="col-md-4">
-              <h4>Canvas</h4>
+              <h4>The Canvas</h4>
               <canvas id="turtlecanvas" width="320" height="320"></canvas>
               <canvas id="imagecanvas" width="320" height="320" style="display:none"></canvas>
             </div>
 	    <div class="col-md-2">
-	      <h4>Samples</h4>
+	      <h4>About</h4>
+	      <p>Welcome to JavaScript Turtle! Turtle is a class "learn to program" tool, in which
+	      a simple shape (the "turtle") is used to draw on a target screen. In the language of
+	      choice, simple commands like "forward" or "right" are entered to make the turtle move.</p>
+	      <p>From simple building blocks, more complicated shapes can be built. Can you build a staircase?
+	      A square? What about a general function for a polygon of any shape?</p>
               <div class="form-group">
-                  <select id="samples" class="form-control">
-		    <option value="starter.js" selected>Starter</option>
-                    <option value="bounce.js">Bounce</option>
-                    <option value="clock.js">Clock</option>
-                    <option value="randstripe.js">Randstripe</option>
-                    <option value="sierpinski.js">Sierpinski</option>
-                    <option value="spiral.js">Spiral</option>
-                  </select>
               </div>
 	    </div>
          </div>
 	 <div class="row">
-            <h4>Command Reference</h4>
-	      <table class="table">
-	         <tr><td>forward(distance)</td><td>Move the "turtle" forward by "distance" (in pixels).</td></tr>
-	         <tr><td>right(angle)</td><td>Rotate the turtle clockise by "angle" (in degrees).</td></tr>
-	         <tr><td>left(angle)</td><td>Rotate the turtle counter-clockwise by "angle" (in degrees).</td></tr>
-	         <tr><td>forward(distance)</td><td>Move the "turtle" forward by "distance" (in pixels).</td></tr>
-	         <tr><td>goto(x,y)</td><td>Position the turtle at the specified x,y coordinates. Note that 0,0 is the center of the canvas.</td></tr>
-	         <tr><td>clear()</td><td>Erase all drawing on the canvas. The turtle stays in place.</td></tr>
-	         <tr><td>penup()</td><td>Configure the turtle to move without drawing.</td></tr>
-	         <tr><td>pendown()</td><td>Configure the turtle to draw as it moves.</td></tr>
-	         <tr><td>reset()</td><td>Reset the canvas and turtle to a pristine state.</td></tr>
-	         <tr><td>angle(angle)</td><td>Set the drawing direction; this does not rotate the turtle.</td></tr>
-	         <tr><td>width(width)</td><td>Set the width of the line drawn by the turtle as it moves.</td></tr>
-	         <tr><td>colour(r,g,b,a)</td><td>Set the color of the line drawn by the pen.</td></tr>
-	         <tr><td>write(string)</td><td>Write "string" at the current turtle location.</td></tr>
-	         <tr><td>n = random(low,high)</td><td>Generate a random number (and assign it to the variable n).</td></tr>
-	         <tr><td>hideTurtle()</td><td>Make the turtle disappear.</td></tr>
-	         <tr><td>showTurtle()</td><td>Make the turtle re-appear.</td></tr>
-	         <tr><td>redrawOnMove(bool)</td><td></td></tr>
-	         <tr><td>draw()</td><td></td></tr>
-	         <tr><td>repeat(n, action)</td><td>Repeat "action", "n" times.</td></tr>
-	         <tr><td>wrap(bool)</td><td>Turn edge wrapping on or off.</td></tr>
-	         <tr><td>animate(action,ms)</td><td>Execute the function "action" every "ms" milliseconds.</td></tr>
-	      </table>
+	    <div class="col-md-12">
+	       <h4>Command Reference</h4>
+		 <table class="table">
+		    <tr><td>forward(distance)</td><td>Move the "turtle" forward by "distance" (in pixels).</td></tr>
+		    <tr><td>right(angle)</td><td>Rotate the turtle clockise by "angle" (in degrees).</td></tr>
+		    <tr><td>left(angle)</td><td>Rotate the turtle counter-clockwise by "angle" (in degrees).</td></tr>
+		    <tr><td>goto(x,y)</td><td>Position the turtle at the specified x,y coordinates. Note that 0,0 is the center of the canvas.</td></tr>
+		    <tr><td>clear()</td><td>Erase all drawing on the canvas. The turtle stays in place.</td></tr>
+		    <tr><td>penup()</td><td>Configure the turtle to move without drawing.</td></tr>
+		    <tr><td>pendown()</td><td>Configure the turtle to draw as it moves.</td></tr>
+		    <tr><td>reset()</td><td>Reset the canvas and turtle to a pristine state.</td></tr>
+		    <tr><td>angle(angle)</td><td>Set the drawing direction; this does not rotate the turtle.</td></tr>
+		    <tr><td>width(width)</td><td>Set the width of the line drawn by the turtle as it moves.</td></tr>
+		    <tr><td>colour(r,g,b,a)</td><td>Set the color of the line drawn by the pen.</td></tr>
+		    <tr><td>write(string)</td><td>Write "string" at the current turtle location.</td></tr>
+		    <tr><td>n = random(low,high)</td><td>Generate a random number (and assign it to the variable n).</td></tr>
+		    <tr><td>hideTurtle()</td><td>Make the turtle disappear.</td></tr>
+		    <tr><td>showTurtle()</td><td>Make the turtle re-appear.</td></tr>
+		    <tr><td>redrawOnMove(bool)</td><td></td></tr>
+		    <tr><td>draw()</td><td></td></tr>
+		    <tr><td>repeat(n, action)</td><td>Repeat "action", "n" times.</td></tr>
+		    <tr><td>wrap(bool)</td><td>Turn edge wrapping on or off.</td></tr>
+		    <tr><td>animate(action,ms)</td><td>Execute the function "action" every "ms" milliseconds.</td></tr>
+		 </table>
+	      </div>
 	 </div>
       </div> <!-- wrap-->
       <script type="text/javascript" src="turtle.js"></script>

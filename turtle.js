@@ -293,6 +293,10 @@ function animate(f,ms) {
    return setInterval(f, ms);
 }
 
+function stopAnimation() {
+   clearInterval();
+}
+
 function setFont(font) {
    imageContext.font = font;
 }

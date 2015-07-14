@@ -1,6 +1,6 @@
-// Define helper functions here.
-// For example:
+//A function is a piece of code that can be run many times, usually by its name
 
+//can you make this a polygon?
 function square(side) {
    repeat(4, function () {
       forward(side);
@@ -16,3 +16,5 @@ function demo() {
       right(36);
    }
 }
+
+//type "demo()" below this line, and hit "Run Code" (or ctl-m)
